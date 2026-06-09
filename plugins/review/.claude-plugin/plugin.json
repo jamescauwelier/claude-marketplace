@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "review",
+  "description": "Review skills for code and local documentation.",
+  "version": "0.1.0",
+  "author": {
+    "name": "James Cauwelier",
+    "email": "james@propheticsoftware.ai"
+  },
+  "repository": "https://github.com/james-prophetic/skills",
+  "license": "MIT"
+}

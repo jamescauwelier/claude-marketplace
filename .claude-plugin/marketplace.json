@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "jamescauwelier",
+  "description": "James Cauwelier's collection of Claude Code agent skills.",
+  "owner": {
+    "name": "James Cauwelier",
+    "email": "james@propheticsoftware.ai"
+  },
+  "plugins": [
+    {
+      "name": "plan",
+      "source": "./plugins/plan",
+      "description": "Planning and design skills, including relentless plan stress-testing."
+    },
+    {
+      "name": "review",
+      "source": "./plugins/review",
+      "description": "Review skills for code and local documentation."
+    }
+  ]
+}
