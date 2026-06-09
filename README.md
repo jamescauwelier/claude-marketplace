@@ -5,16 +5,32 @@ distributed as a plugin marketplace.
 
 ## Install
 
+After cloning this repository, install every plugin from your working copy:
+
 ```bash
 ./bin/install.sh
 ```
 
-Adds the published marketplace and installs every plugin. Then run `/reload-plugins`
-in your Claude Code session to pick up the skills. Remove everything with
-`./bin/uninstall.sh`.
+Then run `/reload-plugins` in your Claude Code session to pick up the skills. Remove
+everything with `./bin/uninstall.sh`.
 
-Skills are invoked as `/<plugin>:<skill-name>`, e.g. `/plan:grill-me` and
+Skills are invoked as `/<plugin>:<skill-name>`, e.g. `/project:grill-me` and
 `/review:review-docs`.
+
+### Install without cloning
+
+If you'd rather not clone the repo, add the published marketplace and install the
+plugins directly with the Claude Code CLI:
+
+```bash
+claude plugin marketplace add jamescauwelier/claude-marketplace
+claude plugin install project@jamescauwelier
+claude plugin install review@jamescauwelier
+```
+
+Update later with `claude plugin marketplace update jamescauwelier`, then
+`claude plugin install <plugin>@jamescauwelier` again to pick up changes. You can also
+do all of this from inside a Claude Code session via the `/plugin` command.
 
 ## Layout
 
@@ -26,7 +42,7 @@ The repo root is a **marketplace** that catalogs two **plugins**, each under
 .claude-plugin/marketplace.json   # catalogs the plugins below
 bin/                              # install.sh / uninstall.sh
 plugins/
-├── plan/
+├── project/
 │   ├── .claude-plugin/plugin.json
 │   └── skills/grill-me/SKILL.md
 └── review/
@@ -51,15 +67,7 @@ script change.
 
 ## Local development
 
-Install from this working copy instead of GitHub by passing `local`:
-
-```bash
-./bin/install.sh local
-```
-
-The default, `./bin/install.sh remote` (or just `./bin/install.sh`), installs from the
-published marketplace.
-
-Re-run it any time to pick up changes — it reinstalls each plugin, which is needed
+`./bin/install.sh` installs from this working copy, so local edits are picked up.
+Re-run it any time to apply changes — it reinstalls each plugin, which is needed
 after adding, moving, or removing a skill, or changing `marketplace.json`. Editing the
 *contents* of an existing `SKILL.md` only needs `/reload-plugins`.
