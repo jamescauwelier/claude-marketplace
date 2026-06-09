@@ -8,9 +8,9 @@
   },
   "plugins": [
     {
-      "name": "plan",
-      "source": "./plugins/plan",
-      "description": "Planning and design skills, including relentless plan stress-testing."
+      "name": "project",
+      "source": "./plugins/project",
+      "description": "Project planning and design skills, including relentless plan stress-testing."
     },
     {
       "name": "review",
