@@ -5,27 +5,13 @@ distributed as a plugin marketplace.
 
 ## Install
 
-Add the marketplace once, then install whichever plugins you want:
-
-```
-/plugin marketplace add james-prophetic/skills
-/plugin install plan@jamescauwelier
-/plugin install review@jamescauwelier
-```
-
-Or from the CLI:
-
 ```bash
-claude plugin marketplace add james-prophetic/skills
-claude plugin install plan@jamescauwelier
-claude plugin install review@jamescauwelier
+./bin/install.sh
 ```
 
-After installing, reload to pick the skills up:
-
-```
-/reload-plugins
-```
+Adds the published marketplace and installs every plugin. Then run `/reload-plugins`
+in your Claude Code session to pick up the skills. Remove everything with
+`./bin/uninstall.sh`.
 
 Skills are invoked as `/<plugin>:<skill-name>`, e.g. `/plan:grill-me` and
 `/review:review-docs`.
@@ -34,11 +20,11 @@ Skills are invoked as `/<plugin>:<skill-name>`, e.g. `/plan:grill-me` and
 
 The repo root is a **marketplace** that catalogs two **plugins**, each under
 `plugins/<plugin>/`. Within a plugin, skills live **one level deep** under
-`skills/<skill-name>/SKILL.md` and are auto-discovered — no manifest edits are needed
-when adding a new skill to an existing plugin.
+`skills/<skill-name>/SKILL.md` and are auto-discovered.
 
 ```
 .claude-plugin/marketplace.json   # catalogs the plugins below
+bin/                              # install.sh / uninstall.sh
 plugins/
 ├── plan/
 │   ├── .claude-plugin/plugin.json
@@ -56,49 +42,24 @@ plugins/
 ## Adding a plugin or skill
 
 - **New skill in an existing plugin:** drop `plugins/<plugin>/skills/<name>/SKILL.md`.
-  No manifest change needed, but a reinstall is required (see Local installs).
 - **New plugin:** create `plugins/<plugin>/.claude-plugin/plugin.json`, add its
   `skills/`, and add an entry to the `plugins` array in `marketplace.json` with
   `"source": "./plugins/<plugin>"` (the `./` prefix is required).
 
-## Plugin configuration
+`install.sh` reads the plugin list from `marketplace.json`, so a new plugin needs no
+script change.
 
-- `.claude-plugin/marketplace.json` — the marketplace catalog listing each plugin and its `source`.
-- `plugins/<plugin>/.claude-plugin/plugin.json` — one manifest per plugin.
+## Local development
 
-## Local installs
-
-To use the skills without pulling from GitHub, add the marketplace from a local path.
-This exercises the real plugin flow against your working copy, so it's the best way to
-test changes to `marketplace.json`, `plugin.json`, or a skill before pushing:
-
-```
-/plugin marketplace add /Users/jamescauwelier/Documents/Projects/skills
-/plugin install plan@jamescauwelier
-/plugin install review@jamescauwelier
-/reload-plugins
-```
-
-From the CLI:
+Install from this working copy instead of GitHub by passing `local`:
 
 ```bash
-claude plugin marketplace add /local/path/to/skills
-claude plugin install plan@jamescauwelier
-claude plugin install review@jamescauwelier
+./bin/install.sh local
 ```
 
-Editing the *contents* of an existing `SKILL.md` only needs `/reload-plugins`. But the
-installed plugin is copied into a version-keyed cache, so **adding, moving, or removing
-a skill — or changing `marketplace.json` — requires a reinstall**, not just a reload:
+The default, `./bin/install.sh remote` (or just `./bin/install.sh`), installs from the
+published marketplace.
 
-```
-/plugin marketplace update jamescauwelier
-/plugin uninstall plan@jamescauwelier && /plugin install plan@jamescauwelier
-```
-
-To switch back to the GitHub source later, remove the local one and re-add by repo:
-
-```
-/plugin marketplace remove jamescauwelier
-/plugin marketplace add james-prophetic/skills
-```
+Re-run it any time to pick up changes — it reinstalls each plugin, which is needed
+after adding, moving, or removing a skill, or changing `marketplace.json`. Editing the
+*contents* of an existing `SKILL.md` only needs `/reload-plugins`.
