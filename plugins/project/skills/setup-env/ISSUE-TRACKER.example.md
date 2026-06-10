@@ -14,16 +14,14 @@ The steps to identify relevant issues are:
 
 The project that are relevant can be queried by requiring each of these properties to have any one of the values specified:
 
-| Property       | Allowed values            |
-| -------------- | ------------------------- |
-| Initiatives    | `ZoneAI`                  |
-| Project status | `Planned`, `In Progress`  |
+| Filter name   | Skipped       | Allowed values (if not skipped)                    |
+|---------------|---------------|----------------------------------------------------|
+| <filter name> | `yes` or `no` | `first allowed value`, `second allowed value`, etc |
 
 ### Find Relevant Issues
 
 The issues that are relevant can be queried by requiring each of these properties to have any one of the values specified, BUT they MUST also be part of the relevant projects that were identified:
 
-| Property  | Allowed values                              |
-| --------- |---------------------------------------------|
-| Status    | `Planned`, `In Progress`, `Todo`             |
-| Assignees | `No assignee`, `james@propheticsoftware.ai` |
+| Filter name   | Skipped       | Allowed values (if not skipped)                    |
+|---------------|---------------|----------------------------------------------------|
+| <filter name> | `yes` or `no` | `first allowed value`, `second allowed value`, etc |
