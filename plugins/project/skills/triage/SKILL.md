@@ -3,6 +3,13 @@ name: triage
 description: Triage issues through a state machine driven by triage roles. Use when user wants to create an issue, triage issues, review incoming bugs or feature requests, prepare issues for an AFK agent, or manage issue workflow.
 ---
 
+*Pre-requisites*
+
+This repository must have the following files, that are linked from the root `CLAUDE.md`. If not, run the `/setup-env` skill instead of `/triage`:
+
+- `docs/agents/issue-tracker.md`
+- `docs/agents/triage-labels.md`
+
 # Triage
 
 Move issues on the project issue tracker through a small state machine of triage roles.
@@ -27,24 +34,17 @@ Two **category** roles:
 
 Five **state** roles:
 
-- `Agents` > `needs-triage` — maintainer needs to evaluate
-- `Agents` > `needs-info` — waiting on reporter for more information
-- `Agents` > `ready-for-agent` — fully specified, ready for an AFK agent
-- `Agents` > `ready-for-human` — needs human implementation
-- `Agents` > `wontfix` — will not be actioned
+- `needs-triage` — maintainer needs to evaluate
+- `needs-info` — waiting on reporter for more information
+- `ready-for-agent` — fully specified, ready for an AFK agent
+- `ready-for-human` — needs human implementation
+- `wontfix` — will not be actioned
 
 Every triaged issue should carry exactly one category role and one state role. If state roles conflict, flag it and ask the maintainer before doing anything else.
 
+These are canonical role names — the actual label strings used in the issue tracker may differ. The mapping should have been provided to you - run `/setup-env` if not.
+
 State transitions: an unlabeled issue normally goes to `needs-triage` first; from there it moves to `needs-info`, `ready-for-agent`, `ready-for-human`, or `wontfix`. `needs-info` returns to `needs-triage` once the reporter replies. The maintainer can override at any time — flag transitions that look unusual and ask before proceeding.
-
-## Targets
-
-Before an issue can enter triage, it must pass a few constraints:
-
-- `status`: an issue must have a status of either `In Progress` or `Planned`
-- ownership: 
-  - an issue must either be assigned to `james@propheticsoftware.ai`
-  - or be part of a project where `james@propheticsoftware.ai` is the team lead
 
 ## Invocation
 
