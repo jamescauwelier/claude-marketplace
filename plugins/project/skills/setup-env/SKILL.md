@@ -12,7 +12,7 @@ Different items may need configuration. Each of the "Setup Steps" need to be run
 
 If running for the first time, go over each setup step, one by one, and follow instructions there.
 
-Be extremely verbose. Drop all prose. Use lists and select boxes everywhere possible for selection. Do not explain anything, just ask for the values of configuration options and visualize valid options. Error messages, if any, should be 
+Be extremely succinct. Drop all prose. Use lists and select boxes everywhere possible for selection. Do not explain anything, just ask for the values of configuration options and visualize valid options. Error messages, if any, should be 
 extremely concise.
 
 ## Setup Steps
