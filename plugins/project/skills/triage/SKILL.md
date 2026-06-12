@@ -75,8 +75,6 @@ Show counts and a one-line summary per issue. Let the maintainer pick.
 
 4. **Grill (if needed).** If the issue needs fleshing out, run a `/grill-with-docs` session.
 
-5. **Delegate (if needed).** If `docs/agents/team-collaboration.md` exists, review the dependencies and how work should be delegated to them. Produce the necessary blocking issues in Linear, and attach an [agent brief](AGENT-BRIEF.md) with a more limited scope to them. Brief them only on what matters to the subticket and what relates to the responsibilities of the delegated team.
-
 6. **Apply the outcome:**
    - `ready-for-agent` — post an agent brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)).
    - `ready-for-human` — same structure as an agent brief, but note why it can't be delegated (judgment calls, external access, design decisions, manual testing).
