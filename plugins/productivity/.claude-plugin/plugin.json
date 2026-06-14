@@ -1,11 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "plan",
-  "description": "Planning and design skills, including relentless plan stress-testing.",
+  "name": "productivity",
+  "description": "Productivity skills are various skills not fitting into other categories",
   "version": "0.1.0",
   "author": {
     "name": "James Cauwelier",
-    "email": "james@propheticsoftware.ai"
+    "email": "james.cauwelier@gmail.com"
   },
   "repository": "https://github.com/jamescauwelier/claude-marketplace",
   "license": "MIT"

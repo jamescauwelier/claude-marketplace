@@ -4,13 +4,18 @@
   "description": "James Cauwelier's collection of Claude Code agent skills.",
   "owner": {
     "name": "James Cauwelier",
-    "email": "james@propheticsoftware.ai"
+    "email": "james.cauwelier@gmail.com"
   },
   "plugins": [
     {
-      "name": "plan",
-      "source": "./plugins/plan",
-      "description": "Planning and design skills, including relentless plan stress-testing."
+      "name": "productivity",
+      "source": "./plugins/productivity",
+      "description": "Productivity skills are various skills not fitting into other categories"
+    },
+    {
+      "name": "project",
+      "source": "./plugins/project",
+      "description": "Project planning and design skills, including relentless plan stress-testing."
     },
     {
       "name": "review",

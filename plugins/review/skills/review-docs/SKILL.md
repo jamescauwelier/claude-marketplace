@@ -60,6 +60,8 @@ Default grouping is **by file**. For each doc with findings, list each finding a
 If the user asks, group **by category** instead (all drift together, all link issues
 together, etc.).
 
-If there are no findings, output **only** a single short line such as "No issues found."
-Do not recap what was checked, restate verified content, or list the categories — a
-clean result is just that one line.
+If there are no findings, your **entire** response must be a single short line such as
+"No issues found." — nothing before it, nothing after it. Do not precede it with a
+summary of the files or claims you verified, the code you read, or the categories you
+considered. The clean result *is* the message; do not justify it by showing your work.
+A verification recap, even a short one, is itself a violation of this rule.
