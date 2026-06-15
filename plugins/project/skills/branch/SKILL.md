@@ -1,6 +1,6 @@
 ---
 name: branch
-description: Create a git branch from an issue identifier and title, named `<ISSUE>/<slug-of-title>` (e.g. WEB-2/app-skeleton-boots-and-routes). Use when the user wants to start work on a tracked issue and needs a correctly-named branch.
+description: Create a git branch from an issue identifier and title, named `<ISSUE>/<slug-of-title>` (e.g. WEB-2/app-skeleton-boots-and-routes). Use when the user wants to start work on a tracked issue and needs a correctly-named branch. This includes analysis tickets where ADR's or other docs might be added.
 ---
 
 # branch
@@ -55,3 +55,4 @@ If no issue identifier can be determined, ask the user for one. Do not invent it
 
 - Never push the branch as part of this skill — only create it locally. Pushing happens later, when the user asks.
 - Keep the slug ASCII-only.
+- pro-actively create branches for analysis tickets, even if there might not be anything to commit (we can ignore the branch later)
