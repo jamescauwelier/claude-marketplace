@@ -24,6 +24,8 @@ If no issue identifier can be determined, ask the user for one. Do not invent it
 
 ## Steps
 
+**NOTE:** before any of these steps, first pull everything, and make sure our local git is up-to-date with the remote.
+
 1. **Parse the issue identifier.** It is the leading token matching `[A-Z]+-?\d+` (e.g. `WEB-2`). Preserve it verbatim, including the dash — do **not** strip it to `WEB2`.
 
 2. **Get the title.** Use the title text following the identifier in the arguments. If only an identifier was given, fetch the issue from Linear and use its title.

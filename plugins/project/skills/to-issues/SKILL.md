@@ -53,6 +53,8 @@ For each approved slice, publish a new issue to the issue tracker. Use the issue
 
 Publish issues in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
 
+If these issues were created from an analysis of a current ticket, then don't add them as subtickets. The analysis ticket needs to be able to close after analysis is finished.
+
 <issue-template>
 ## Parent
 
