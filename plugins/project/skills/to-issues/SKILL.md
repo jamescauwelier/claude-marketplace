@@ -55,6 +55,8 @@ Publish issues in dependency order (blockers first) so you can reference real is
 
 If these issues were created from an analysis of a current ticket, then don't add them as subtickets. The analysis ticket needs to be able to close after analysis is finished.
 
+Add the issues to the same team and project as the parent ticket if there is one. Make a smart choice to either label them as `Class > Defect` or `Class > Enhancement`. If not sure, ask to confirm which one to apply.
+
 <issue-template>
 ## Parent
 
